@@ -56,7 +56,7 @@
     <dependency>
         <groupId>com.codeborne</groupId>
         <artifactId>selenide</artifactId>
-        <version>7.3.1</version>
+        <version>7.7.0</version>
         <scope>compile</scope>
     </dependency>
     <!-- Selenide + Allure listener в коде через AllureSelenide -->
