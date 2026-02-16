@@ -10,14 +10,14 @@ public class RegistrationTest extends BaseTest{
     void EmptyFieldsTest(){
         rp.openForm()
                 .submit()
-                .checkFieldError("FirstName", "First name is required")
-                .checkFieldError("Password", "Password is required");
+                .checkFieldError("firstName", "First name is required")
+                .checkFieldError("repeatPassword", "Password is required");
     }
 
     @Test
     void InvalidEmailTest(){
         rp.openForm().submit()
                 .fill("Vanya", "vanko", "bbeebe@bebeeb", "password12221112!", "password12221112!")
-                .submit().checkFieldError("Email", "Email is not valid");
+                .submit().checkFieldError("_none", "Email is not valid");
     }
 }

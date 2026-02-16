@@ -1,28 +1,28 @@
 -------------------------------------------------------------------------------
 Test set: RegistrationTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 46.22 s <<< FAILURE! -- in RegistrationTest
-RegistrationTest.InvalidEmailTest -- Time elapsed: 25.97 s <<< FAILURE!
-Invalid element state [By.name: firstName]: invalid element state
-Screenshot: file:/C:/Users/user/IdeaProjects/tittee/build/reports/tests/1770991098958.0.png
-Page source: file:/C:/Users/user/IdeaProjects/tittee/build/reports/tests/1770991098958.0.html
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 28.92 s <<< FAILURE! -- in RegistrationTest
+RegistrationTest.InvalidEmailTest -- Time elapsed: 18.92 s <<< FAILURE!
+Invalid element state [By.name: firstName]: element not interactable
+Screenshot: file:/C:/Users/user/IdeaProjects/tittee/build/reports/tests/1771250281838.0.png
+Page source: file:/C:/Users/user/IdeaProjects/tittee/build/reports/tests/1771250281838.0.html
 Timeout: 10 s.
-Caused by: InvalidElementStateException: invalid element state
+Caused by: ElementNotInteractableException: element not interactable
 	at com.codeborne.selenide.impl.ExceptionWrapper.wrap(ExceptionWrapper.java:26)
 	at com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:156)
 	at com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:86)
-	at jdk.proxy2/jdk.proxy2.$Proxy24.setValue(Unknown Source)
-	at Pages.RegistrationPage.fill(RegistrationPage.java:46)
+	at jdk.proxy2/jdk.proxy2.$Proxy24.sendKeys(Unknown Source)
+	at Pages.RegistrationPage.fill(RegistrationPage.java:48)
 	at RegistrationTest.InvalidEmailTest(RegistrationTest.java:20)
-Caused by: org.openqa.selenium.InvalidElementStateException: invalid element state
+Caused by: org.openqa.selenium.ElementNotInteractableException: element not interactable
   (Session info: chrome=144.0.7559.133)
 Build info: version: '4.27.0', revision: 'd6e718d134'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [91ce424c01c149adc8427213f9df73a2, clearElement {id=f.4ADB40F15329E00CC5298594193168B6.d.0A2D4AFE0B225F0A5D9663443D97884E.e.121}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59014}, goog:processID: 8964, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59014/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (91ce424c01c149adc8427213f9df73a2)] -> name: firstName]
-Session ID: 91ce424c01c149adc8427213f9df73a2
+Command: [9897cb12496e756bf9e0f4a3eb775708, sendKeysToElement {value=[Ljava.lang.CharSequence;@4dba773d, id=f.442EC225E1213383D25E1B649EDD1866.d.D48375852FA41FED87065ADAE57D69DC.e.88}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54230}, goog:processID: 13716, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54230/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (9897cb12496e756bf9e0f4a3eb775708)] -> name: firstName]
+Session ID: 9897cb12496e756bf9e0f4a3eb775708
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
@@ -34,62 +34,9 @@ Session ID: 91ce424c01c149adc8427213f9df73a2
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:129)
-	at com.codeborne.selenide.commands.Clear.clear(Clear.java:72)
-	at com.codeborne.selenide.commands.SetValue.setValueForTextInput(SetValue.java:70)
-	at com.codeborne.selenide.commands.SetValue.execute(SetValue.java:43)
-	at com.codeborne.selenide.commands.SetValue.execute(SetValue.java:25)
-	at com.codeborne.selenide.commands.Commands.execute(Commands.java:162)
-	at com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:134)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:110)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:137)
 	... 4 more
-
-RegistrationTest.EmptyFieldsTest -- Time elapsed: 20.10 s <<< FAILURE!
-Element not found {By.xpath: //span[@data-valmsg-for='FirstName']}
-Expected: visible
-Screenshot: file:/C:/Users/user/IdeaProjects/tittee/build/reports/tests/1770991119121.1.png
-Page source: file:/C:/Users/user/IdeaProjects/tittee/build/reports/tests/1770991119121.1.html
-Timeout: 10 s.
-Caused by: NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[@data-valmsg-for='FirstName']"}
-	at com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:90)
-	at com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
-	at com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:142)
-	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:126)
-	at com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:103)
-	at com.codeborne.selenide.commands.Should.execute(Should.java:30)
-	at com.codeborne.selenide.commands.Should.execute(Should.java:14)
-	at com.codeborne.selenide.commands.Commands.execute(Commands.java:162)
-	at com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:134)
-	at com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:86)
-	at jdk.proxy2/jdk.proxy2.$Proxy24.shouldBe(Unknown Source)
-	at Pages.RegistrationPage.checkFieldError(RegistrationPage.java:70)
-	at RegistrationTest.EmptyFieldsTest(RegistrationTest.java:13)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[@data-valmsg-for='FirstName']"}
-  (Session info: chrome=144.0.7559.133)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.27.0', revision: 'd6e718d134'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [15e2d1493727faf570527af3afa2489f, findElement {using=xpath, value=//span[@data-valmsg-for='FirstName']}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 144.0.7559.133, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: C:\Users\user\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59158}, goog:processID: 10824, networkConnectionEnabled: false, pageLoadStrategy: eager, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59158/devtoo..., se:cdpVersion: 144.0.7559.133, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 15e2d1493727faf570527af3afa2489f
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:73)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:46)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:35)
-	at com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
-	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:115)
-	... 9 more
 
