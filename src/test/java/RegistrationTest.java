@@ -10,14 +10,23 @@ public class RegistrationTest extends BaseTest{
     void EmptyFieldsTest(){
         rp.openForm()
                 .submit()
-                .checkFieldError("firstName", "First name is required")
-                .checkFieldError("repeatPassword", "Password is required");
+                .checkFieldError("//*[@id=\"__layout\"]/div/div[2]/section[1]/div/div/div[2]/div/div/form/div/div[1]/div[1]/div/div[3]/div", "First name is required")
+                .checkFieldError("//*[@id=\"__layout\"]/div/div[2]/section[1]/div/div/div[2]/div/div/form/div/div[1]/div[4]/div/div[3]/div", "Password is required");
     }
 
     @Test
     void InvalidEmailTest(){
         rp.openForm().submit()
-                .fill("Vanya", "vanko", "bbeebe@bebeeb", "password12221112!", "password12221112!")
-                .submit().checkFieldError("_none", "Email is not valid");
+                .fill("Vanya", "vanko", "bbeebebebeeb", "password12221112!", "password12221112!")
+                .submit().checkFieldError("//*[@id=\"__layout\"]/div/div[2]/section[1]/div/div/div[2]/div/div/form/div/div[1]/div[3]/div/div[3]/div", "Email is not valid");
     }
+
+    @Test
+    void PasswordTooShortTest(){
+        rp.openForm().submit()
+                .fill("Vanya", "Vanko", "bbeebe@bebeeb.com", "123!", "123!")
+                .submit().checkFieldError("//*[@id=\"__layout\"]/div/div[2]/section[1]/div/div/div[2]/div/div/form/div/div[1]/div[4]/div/div[3]/div","Must be 7-15 characters long, must include: upper-case letter, lower-case letter, number.");
+    }
+
+
 }

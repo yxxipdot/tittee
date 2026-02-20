@@ -12,16 +12,15 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-    private final SelenideElement firstName = $(byName("firstName"));
-    private final SelenideElement lastName  = $(byName("lastName")); //????
-    private final SelenideElement email     = $(byName("email"));
-    private final SelenideElement password = $(By.name("password"));
-    private final SelenideElement confirm = $(By.name("repeatPassword"));
-    private SelenideElement submitBtn; // или кнопка внутри формы
+    private final SelenideElement firstName = $(byXpath("//*[@id=\"__layout\"]/div/div[2]/section[1]/div/div/div[2]/div/div/form/div/div[1]/div[1]/div/div[2]/div[3]/input"));
+    private final SelenideElement lastName  = $(byXpath("//*[@id=\"__layout\"]/div/div[2]/section[1]/div/div/div[2]/div/div/form/div/div[1]/div[2]/div/div[2]/div[3]/input")); //????
+    private final SelenideElement email     = $(byXpath("//*[@id=\"__layout\"]/div/div[2]/section[1]/div/div/div[2]/div/div/form/div/div[1]/div[3]/div/div[2]/div[3]/input"));
+    private final SelenideElement password = $(byXpath("//*[@id=\"__layout\"]/div/div[2]/section[1]/div/div/div[2]/div/div/form/div/div[1]/div[4]/div/div[2]/div[3]/input"));
+    private final SelenideElement confirm = $(byXpath("//*[@id=\"__layout\"]/div/div[2]/section[1]/div/div/div[2]/div/div/form/div/div[1]/div[5]/div/div[2]/div[3]/input"));
 
     // Контейнер ошибок (общий или по полям). Найдите реальный.
     private SelenideElement getFieldError(String fieldId) {
-        return $(By.xpath("//input[@name='" + fieldId + "']/ancestor::div[contains(@class, 'base-field')]//div[contains(@class, 'field-footer__error')]"));
+        return $(By.xpath(fieldId));
     }
 
     private final SelenideElement generalErrorSummary = $(".alert-error");
@@ -89,9 +88,9 @@ public class RegistrationPage {
 
     @Step("Проверить текст ошибки для поля {fieldId}")
     public RegistrationPage checkFieldError(String fieldId, String expectedText) {
-        getFieldError(fieldId)
-                .shouldBe(visible, Duration.ofSeconds(10)) // Даем фронтенду 10 секунд на отрисовку красного текста
-                .shouldHave(text(expectedText));
+        SelenideElement se = getFieldError(fieldId);
+        se.shouldBe(visible, Duration.ofSeconds(10));
+                se.shouldHave(text(expectedText));
         return this;
     }
 }

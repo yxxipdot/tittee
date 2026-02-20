@@ -13,6 +13,7 @@
     <maven.compiler.target>17</maven.compiler.target>
     <selenide.version>7.3.1</selenide.version>
     <allure.version>2.25.0</allure.version>
+    <aspectj.version>1.9.20.1</aspectj.version>
     <allure.maven.plugin.version>2.12.0</allure.maven.plugin.version>
 </properties>
 
@@ -71,6 +72,10 @@
             <includes>
                 <include>**/*Test.java</include>
             </includes>
+            <systemPropertyVariables>
+                <!-- Вот здесь можно форсировать путь к результатам -->
+                <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+            </systemPropertyVariables>
             <!-- при необходимости: системные свойства Selenide -->
             <!-- <systemPropertyVariables>
               <selenide.browser>chrome</selenide.browser>
@@ -82,6 +87,16 @@
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-maven</artifactId>
         <version>${allure.maven.plugin.version}</version>
+    </plugin>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+            <argLine>
+                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+            </argLine>
+        </configuration>
     </plugin>
 </plugins>
 </build>

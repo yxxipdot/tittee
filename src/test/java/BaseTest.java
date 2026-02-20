@@ -31,7 +31,7 @@ public abstract class BaseTest {
             );
         }
 
-    @BeforeEach
+    /*@BeforeEach
     public void addAllureListener() {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(true));
@@ -40,7 +40,7 @@ public abstract class BaseTest {
     @AfterEach
     public void removeAllureListener() {
         SelenideLogger.removeListener("AllureSelenide");
-    }
+    }*/
 
     @AfterEach
     void tearDown() {
