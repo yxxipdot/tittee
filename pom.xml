@@ -26,14 +26,20 @@
     </dependency>
     <dependency>
         <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-junit4</artifactId>
+        <artifactId>allure-junit5</artifactId>
         <version>${allure.version}</version>
         <scope>compile</scope>
     </dependency>
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
-        <version>6.1.0-M1</version>
+        <version>5.11.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.11.0</version>
         <scope>test</scope>
     </dependency>
     <dependency>
@@ -54,42 +60,44 @@
 
 <build>
 <plugins>
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.6.1</version>
-        <executions>
-            <execution>
-                <goals>
-                    <goal>properties</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
-
-    <plugin>
-        <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-maven</artifactId>
-        <version>${allure.maven.plugin.version}</version>
-        <configuration>
-            <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
-            <reportDirectory>${project.basedir}/allure-report</reportDirectory>
-        </configuration>
-    </plugin>
-
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.2.5</version>
-        <configuration>
-            <argLine>
-                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-            </argLine>
-            <systemPropertyVariables>
-                <allure.results.directory>${project.basedir}/allure-results</allure.results.directory>
-            </systemPropertyVariables>
-        </configuration>
-    </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.6.1</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>properties</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-maven</artifactId>
+            <version>${allure.maven.plugin.version}</version>
+            <configuration>
+                <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
+                <reportDirectory>${project.basedir}/allure-report</reportDirectory>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.5.5</version>
+            <configuration>
+                <argLine>
+                    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.22/aspectjweaver-1.9.22.jar"
+                </argLine>
+            </configuration>
+            <dependencies>
+                <dependency>
+                    <groupId>org.aspectj</groupId>
+                    <artifactId>aspectjweaver</artifactId>
+                    <version>${aspectj.version}</version>
+                </dependency>
+            </dependencies>
+        </plugin>
 </plugins>
 </build>
 </project>
