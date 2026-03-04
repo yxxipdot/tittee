@@ -13,7 +13,7 @@
     <maven.compiler.target>17</maven.compiler.target>
     <selenide.version>7.3.1</selenide.version>
     <allure.version>2.32.0</allure.version>
-    <aspectj.version>1.9.20.1</aspectj.version>
+    <aspectj.version>1.9.22</aspectj.version>
     <allure.maven.plugin.version>2.17.0</allure.maven.plugin.version>
 </properties>
 

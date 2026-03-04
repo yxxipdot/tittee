@@ -74,7 +74,7 @@ public class RegistrationPage {
 
     @Step("Нажать кнопку регистрации")
     public RegistrationPage submit() {
-        sleep(10000);
+        sleep(5000);
         //submitBtn = .shouldBe(visible);
         $(byText("Sign Up")).scrollTo().shouldBe(visible, Duration.ofSeconds(10)).click();
         return this;

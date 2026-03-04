@@ -15,7 +15,7 @@ public abstract class BaseTest {
         static{
             Configuration.baseUrl = "https://www.finalsurge.com";
             Configuration.browser = System.getProperty("browser", "chrome");
-            Configuration.timeout = 10000; // 10 секунд вполне достаточно
+            Configuration.timeout = 5000; // 10 секунд вполне достаточно
             Configuration.pageLoadStrategy = "eager";
             Configuration.screenshots = true;
             Configuration.savePageSource = true;
